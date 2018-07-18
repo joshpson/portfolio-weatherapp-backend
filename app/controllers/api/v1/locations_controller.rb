@@ -8,7 +8,8 @@ class Api::V1::LocationsController < ApplicationController
   end
 
   def show
-    render json: @location
+    weather = Darksky.getData(@location)
+    render json: {location: @location, weather: weather}
   end
 
   private
