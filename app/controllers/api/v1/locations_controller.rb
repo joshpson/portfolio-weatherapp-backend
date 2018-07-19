@@ -1,6 +1,7 @@
 class Api::V1::LocationsController < ApplicationController
 
   before_action :find_location, only: [:show]
+  before_action :authenticate_user
 
   def index
     @locations = Location.all
