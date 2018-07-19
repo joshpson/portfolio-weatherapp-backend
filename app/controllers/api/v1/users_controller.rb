@@ -1,24 +1,19 @@
 class Api::V1::UsersController < ApplicationController
-
-  before_action :find_user, only: [:show]
+  before_action :authenticate_user
 
   def index
     @users = User.all
     render json: @users
   end
 
-  def show
-    render json: @user
+  def show_user
+    render json: current_user
   end
 
   private
 
   def user_params
-    params.permit(:first_name, :last_name, :email, :password, :metric)
-  end
-
-  def find_user
-    @user = User.find(params[:id])
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :metric)
   end
 
 end
