@@ -1,9 +1,19 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user, only: [:show_user]
 
   def index
     @users = User.all
     render json: @users
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.valid?
+      @user.save
+      render json: @user, status: :accepted
+    else
+      render json: {errors: @user.errors.full_messages}, status: :unprocessible_entity
+    end
   end
 
   def show_user

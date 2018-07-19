@@ -8,4 +8,4 @@
 
 users = User.create([{first_name: "Carson", last_name: "Wentz", email: "cwentz@eagles.com", password: "eagles"}])
 
-Location.create([{user: users.first, name: "Philadelphia", latitude: 39.9526, longitude: 75.1652, home: true, image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Philadelphia_from_South_Street_Bridge_July_2016_panorama_3b.jpg/1200px-Philadelphia_from_South_Street_Bridge_July_2016_panorama_3b.jpg"}])
+Location.create([{user: users.first, name: "Philadelphia", latitude: 39.9526, longitude: -75.1652, home: true, image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Philadelphia_from_South_Street_Bridge_July_2016_panorama_3b.jpg/1200px-Philadelphia_from_South_Street_Bridge_July_2016_panorama_3b.jpg"}])
