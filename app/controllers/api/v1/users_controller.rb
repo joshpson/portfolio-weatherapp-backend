@@ -16,6 +16,15 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find_by(id: params[:id])
+    if  @user.update(user_params)
+      render json: @user, status: :accepted
+    else
+      render json: {errors: @user.errors.full_messages}, status: :unprocessible_entity
+    end
+  end
+
   def show_user
     render json: current_user
   end
