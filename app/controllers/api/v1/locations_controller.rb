@@ -1,6 +1,6 @@
 class Api::V1::LocationsController < ApplicationController
 
-  before_action :find_location, only: [:show]
+  before_action :find_location, only: [:show, :destroy]
   before_action :authenticate_user
 
   def index
@@ -14,7 +14,7 @@ class Api::V1::LocationsController < ApplicationController
      if @location.save
       render json: {location: @location, status: :created}
      else
-      render json: {errors: @location.errors, tatus: :unprocessable_entity}
+      render json: {errors: @location.errors, status: :unprocessable_entity}
      end
   end
 
@@ -26,6 +26,10 @@ class Api::V1::LocationsController < ApplicationController
   def show
     weather = Darksky.getData(@location)
     render json: {location: @location, weather: weather}
+  end
+
+  def destroy
+    @location.destroy
   end
 
   private

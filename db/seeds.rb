@@ -11,5 +11,5 @@ Location.delete_all
 
 users = User.create([{first_name: "Carson", last_name: "Wentz", email: "cwentz@eagles.com", password: "eagles"}])
 
-Location.create([{user: users.first, name: "Philadelphia", latitude: 39.9526, longitude: -75.1652, home: true, place_id: "ChIJ60u11Ni3xokRwVg-jNgU9Yk"}])
+# Location.create([{user: users.first, name: "Philadelphia", latitude: 39.9526, longitude: -75.1652, home: true, place_id: "ChIJ60u11Ni3xokRwVg-jNgU9Yk"}])
 Location.create([{user: users.first, name: "Washington, D.C.", latitude: 38.889931, longitude: -77.009003, home: false, place_id: "ChIJW-T2Wt7Gt4kRKl2I1CJFUsI"}])
