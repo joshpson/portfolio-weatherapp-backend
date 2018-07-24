@@ -24,7 +24,7 @@ class Api::V1::LocationsController < ApplicationController
   end
 
   def show
-    weather = Darksky.getData(@location)
+    weather = Darksky.getData(@location, current_user.metric)
     render json: {location: @location, weather: weather}
   end
 
